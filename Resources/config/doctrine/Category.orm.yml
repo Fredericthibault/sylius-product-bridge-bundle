@@ -1,0 +1,22 @@
+Viweb\SyliusProductBridgeBundle\Entity\Category:
+    type: entity
+    table: product_category
+    repositoryClass: Viweb\SyliusProductBridgeBundle\Repository\CategoryRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        ordering:
+            type: integer
+            nullable: true
+    manyToOne:
+        image:
+          targetEntity: Viweb\MediaBundle\Entity\Media
+          joinColumn:
+              name: media_id
+              referencedColumnName: id
+          cascade: [persist]
+    lifecycleCallbacks: {  }

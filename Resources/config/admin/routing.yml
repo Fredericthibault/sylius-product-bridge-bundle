@@ -1,0 +1,230 @@
+sylius_admin_product:
+    resource: |
+        alias: sylius.product
+        section: admin
+        templates: ViwebSystemBundle:Crud
+        except: ['show']
+        redirect: update
+        grid: sylius_admin_product
+        vars:
+            all:
+                subheader: sylius.ui.manage_your_product_catalog
+#                templates:
+#                    form: SyliusAdminBundle:Product:_form.html.twig
+            index:
+                icon: cube
+    type: sylius.resource
+sylius_admin_product_per_taxon_index:
+    path: /products/taxon/{taxonId}
+    methods: [GET]
+    defaults:
+        _controller: sylius.controller.product:indexAction
+        _sylius:
+            section: admin
+            grid: sylius_admin_product_from_taxon
+            template: SyliusAdminBundle:Product:index.html.twig
+            vars:
+                subheader: sylius.ui.manage_your_product_catalog
+                icon: cube
+sylius_admin_product_variant_index:
+    path: /
+    methods: [GET]
+    defaults:
+        _controller: sylius.controller.product_variant:indexAction
+        _sylius:
+            template: "@ViwebSystem/Crud/index.html.twig"
+            grid: sylius_admin_product_variant
+            section: admin
+            permission: true
+            vars:
+                route:
+                    parameters:
+                        productId: $productId
+#                templates:
+#                    breadcrumb: "@SyliusAdmin/ProductVariant/Index/_breadcrumb.html.twig"
+                icon: cubes
+                subheader: sylius.ui.manage_variants
+
+sylius_admin_product_variant_create:
+    path: /new
+    methods: [GET, POST]
+    defaults:
+        _controller: sylius.controller.product_variant:createAction
+        _sylius:
+            factory:
+                method: createForProduct
+                arguments:
+                  - expr:service('sylius.repository.product').find($productId)
+            template: "@ViwebSystem/Crud/create.html.twig"
+            grid: sylius_admin_product_variant
+            section: admin
+            redirect:
+                route: sylius_admin_product_variant_index
+                parameters: { productId: $productId }
+            permission: true
+            vars:
+                route:
+                    parameters:
+                        productId: $productId
+#                templates:
+#                    form: "@SyliusAdmin/ProductVariant/_form.html.twig"
+#                    breadcrumb: "@SyliusAdmin/ProductVariant/Create/_breadcrumb.html.twig"
+
+sylius_admin_product_variant_update:
+    path: /{id}/edit
+    methods: [GET, PUT]
+    defaults:
+        _controller: sylius.controller.product_variant:updateAction
+        _sylius:
+            template: "@ViwebSystem/Crud/update.html.twig"
+            grid: sylius_admin_product_variant
+            section: admin
+            redirect:
+                route: sylius_admin_product_variant_index
+                parameters: { productId: $productId }
+            permission: true
+            vars:
+                route:
+                    parameters:
+                        id: $id
+                        productId: $productId
+#                templates:
+#                    form: "@SyliusAdmin/ProductVariant/_form.html.twig"
+#                    breadcrumb: "@SyliusAdmin/ProductVariant/Update/_breadcrumb.html.twig"
+            permission: true
+
+sylius_admin_product_variant_delete:
+    path: /{id}
+    methods: [DELETE]
+    defaults:
+        _controller: sylius.controller.product_variant:deleteAction
+        _sylius:
+            redirect: referer
+            permission: true
+
+sylius_admin_product_variant_generate:
+    path: /generate
+    methods: [GET, POST]
+    defaults:
+        _controller: sylius.controller.product:updateAction
+        _sylius:
+#            template: "@SyliusAdmin/ProductVariant/generate.html.twig"
+            section: admin
+            redirect:
+                route: sylius_admin_product_variant_index
+                parameters: { productId: $productId }
+            form:
+                type: Sylius\Bundle\ProductBundle\Form\Type\ProductGenerateVariantsType
+            repository:
+                method: find
+                arguments: [$productId]
+            flash: sylius.product_variant.generate
+viweb_admin_product_category:
+    resource: |
+            alias: viweb.product_category
+            section: admin
+            templates: ViwebSystemBundle:Crud
+            except: ['show']
+            redirect: update
+            grid: viweb_product_category
+            vars:
+                all:
+                    subheader: sylius.ui.manage_your_product_catalog
+    #                templates:
+    #                    form: SyliusAdminBundle:Product:_form.html.twig
+                index:
+                    icon: cube
+    type: sylius.resource
+#sylius_admin_product_create:
+#    path: /products/new
+#    methods: [GET, POST]
+#    defaults:
+#        _controller: sylius.controller.product:createAction
+#        _sylius:
+#            section: admin
+#            template: SyliusAdminBundle:Crud:create.html.twig
+#            redirect: sylius_admin_product_update
+#            vars:
+#                subheader: sylius.ui.manage_your_product_catalog
+#                templates:
+#                    form: SyliusAdminBundle:Product:_form.html.twig
+#                route:
+#                    name: sylius_admin_product_create
+#
+#sylius_admin_product_create_simple:
+#    path: /products/new/simple
+#    methods: [GET, POST]
+#    defaults:
+#        _controller: sylius.controller.product:createAction
+#        _sylius:
+#            section: admin
+#            factory:
+#                method: createWithVariant
+#            template: SyliusAdminBundle:Crud:create.html.twig
+#            redirect: sylius_admin_product_update
+#            vars:
+#                subheader: sylius.ui.manage_your_product_catalog
+#                templates:
+#                    form: SyliusAdminBundle:Product:_form.html.twig
+#                route:
+#                    name: sylius_admin_product_create_simple
+
+#sylius_admin_product_attribute:
+#    resource: |
+#        alias: sylius.product_attribute
+#        section: admin
+#        templates: ViwebSystemBundle:Crud
+#        except: ['show', 'create']
+#        redirect: update
+#        grid: sylius_admin_product_attribute
+#        permission: true
+#        vars:
+#            all:
+#                subheader: sylius.ui.manage_attributes_of_your_products
+##                templates:
+##                    form: SyliusAdminBundle:ProductAttribute:_form.html.twig
+#            index:
+#                icon: cubes
+#    type: sylius.resource
+#sylius_admin_product_attribute_create:
+#    path: /product-attributes/new
+#    methods: [GET, POST]
+#    defaults:
+#        _controller: sylius.controller.product_attribute:createAction
+#        _sylius:
+#            section: admin
+#            factory:
+#                method: createTyped
+#                arguments:
+#                    type: $type
+#            template: ViwebSystemBundle:Crud:create.html.twig
+#            redirect: sylius_admin_product_attribute_update
+#            permission: true
+#            vars:
+#                subheader: sylius.ui.manage_attributes_of_your_products
+##                templates:
+##                    form: SyliusAdminBundle:ProductAttribute:_form.html.twig
+#                route:
+#                    parameters:
+#                        type: $type
+#
+#sylius_admin_get_attribute_types:
+#    path: /attribute-types
+#    methods: [GET]
+#    defaults:
+#        _controller: sylius.controller.product_attribute:getAttributeTypesAction
+##        template: SyliusAdminBundle:ProductAttribute/Types:attributeTypes.html.twig
+#
+#sylius_admin_get_product_attributes:
+#    path: /attributes
+#    methods: [GET]
+#    defaults:
+#        _controller: sylius.controller.product_attribute:renderAttributesAction
+##        template: SyliusAdminBundle:Product/Attribute:attributeChoice.html.twig
+#
+#sylius_admin_render_attribute_forms:
+#    path: /attribute-forms
+#    methods: [GET]
+#    defaults:
+#        _controller: sylius.controller.product_attribute:renderAttributeValueFormsAction
+##        template: SyliusAdminBundle:Product/Attribute:attributeValues.html.twig

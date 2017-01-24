@@ -1,0 +1,16 @@
+{
+  "name": "viweb/sylius-product-bridge-bundle",
+  "description": "A bridge to connect the Viweb admin to the Sylius product bundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Pierre-Marc David Caron",
+      "email": "pierre-marc@viweb.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=7.0",
+    "sylius/product-bundle": "1.0.0-beta-1"
+  }
+}

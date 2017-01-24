@@ -1,0 +1,11 @@
+sylius_resource:
+    resources:
+        viweb.product_category:
+            classes:
+                model: Viweb\SyliusProductBridgeBundle\Entity\Category
+                repository: Viweb\SyliusProductBridgeBundle\Repository\CategoryRepository
+                form: Viweb\SyliusProductBridgeBundle\Form\Type\CategoryType
+            translation:
+                classes:
+                    model: Viweb\SyliusProductBridgeBundle\Entity\CategoryTranslation
+                    form: Viweb\SyliusProductBridgeBundle\Form\Type\CategoryTranslationType

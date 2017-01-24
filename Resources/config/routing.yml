@@ -1,0 +1,3 @@
+viweb_sylius_product_bridge_homepage:
+    path:     /
+    defaults: { _controller: ViwebSyliusProductBridgeBundle:Default:index }

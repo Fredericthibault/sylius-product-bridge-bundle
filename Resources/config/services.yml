@@ -1,0 +1,13 @@
+services:
+    viweb_sylius_product_bridge.admin_menu_listener:
+        class: Viweb\SyliusProductBridgeBundle\EventListener\ConfigureAdminMenuListener
+        tags:
+          - { name: kernel.event_listener, event: viweb_system.menu_admin_configure, method: onMenuConfigure }
+    viweb.form.extension.type.product:
+        class: Viweb\SyliusProductBridgeBundle\Form\Extension\ProductTypeExtension
+        tags:
+            - { name: form.type_extension, extended_type: Sylius\Bundle\ProductBundle\Form\Type\ProductType }
+#    viweb_sylius_product_bridge.product_subscriber:
+#        class: Viweb\SyliusProductBridgeBundle\EventListener\ProductEntityListener
+#        tags:
+#            - { name: doctrine.event_subscriber }
