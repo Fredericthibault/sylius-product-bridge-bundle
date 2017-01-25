@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Search results</title>
+</head>
+<body>
+{{ render(controller('ViwebSystemBundle:FrontendUtils:buildMenu')) }}
+<h2>Search Results</h2>
+<ul>
+    {% for p in products %}
+        {% if p.name|length %}
+            <li>{{ p.name|raw }}</li>
+        {% endif %}
+{% endfor %}
+</ul>
+<h3>Recherche de produits</h3>
+<form action="{{ path('viweb_sylius_product_bridge_search') }}" method="get">
+    <input type="text" name="term" placeholder="recherche">
+    <button type="submit">Rechercher</button>
+</form>
+</body>
+</html>
