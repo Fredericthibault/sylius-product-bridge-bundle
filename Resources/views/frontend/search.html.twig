@@ -1,9 +1,5 @@
-<html>
-<head>
-    <title>Search results</title>
-</head>
-<body>
-{{ render(controller('ViwebSystemBundle:FrontendUtils:buildMenu')) }}
+{% extends 'layout.html.twig' %}
+{% block content %}
 <h2>Search Results</h2>
 <ul>
     {% for p in products %}
@@ -17,5 +13,4 @@
     <input type="text" name="term" placeholder="recherche">
     <button type="submit">Rechercher</button>
 </form>
-</body>
-</html>
+{% endblock %}

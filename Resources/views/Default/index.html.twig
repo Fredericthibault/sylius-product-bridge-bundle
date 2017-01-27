@@ -1,10 +1,5 @@
-<html>
-<head>
-    <title>Produits</title>
-</head>
-<body>
-<h2>Secondary Menu</h2>
-{{ knp_menu_render('secondary') }}
+{% extends 'layout.html.twig' %}
+{% block content %}
 <h3>Recherche de produits</h3>
 <form action="{{ path('viweb_sylius_product_bridge_search') }}" method="get">
     <input type="text" name="term" placeholder="recherche">
@@ -19,6 +14,4 @@
        <img src="http://placehold.it/350x350" />
    </div>
 {% endfor %}
-</body>
-
-</html>
+{% endblock %}
