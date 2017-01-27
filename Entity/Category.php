@@ -2,6 +2,7 @@
 
 namespace Viweb\SyliusProductBridgeBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\TranslatableInterface;
 use Sylius\Component\Resource\Model\TranslatableTrait;
@@ -15,8 +16,11 @@ class Category implements ResourceInterface, TranslatableInterface
         __construct as intializeTranslationCollection;
     }
 
+    private $products;
+
     public function __construct()
     {
+        $this->products = new ArrayCollection();
         $this->currentLocale = $this->fallbackLocale = 'en';
         $this->intializeTranslationCollection();
     }
@@ -110,4 +114,34 @@ class Category implements ResourceInterface, TranslatableInterface
     {
         return $this->image;
     }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getProducts()
+    {
+        return $this->products;
+    }
+
+    public function addProduct($product)
+    {
+        $this->products->add($product);
+        return $this;
+    }
+
+    public function removeProduct($product)
+    {
+        $this->products->removeElement($product);
+        return $this;
+    }
+
+    /**
+     * @param ArrayCollection $products
+     */
+    public function setProducts(ArrayCollection $products)
+    {
+        $this->products = $products;
+        return $this;
+    }
+
 }

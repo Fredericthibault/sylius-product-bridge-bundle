@@ -12,4 +12,13 @@ use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
  */
 class CategoryRepository extends EntityRepository
 {
+    public function findBySlug($slug)
+    {
+        return $this->createQueryBuilder('c')
+            ->select('c', 'ct')
+            ->innerJoin('c.translations', 'ct')
+            ->andWhere('ct.slug LIKE :slug')
+            ->setParameter('slug', $slug)
+            ->getQuery()->getSingleResult();
+    }
 }

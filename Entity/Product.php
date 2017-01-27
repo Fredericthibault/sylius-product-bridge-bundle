@@ -10,8 +10,9 @@ namespace Viweb\SyliusProductBridgeBundle\Entity;
 
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Sylius\Component\Resource\Model\TranslatableInterface;
 
-class Product extends \Sylius\Component\Product\Model\Product
+class Product extends \Sylius\Component\Product\Model\Product implements TranslatableInterface
 {
     protected $category;
 

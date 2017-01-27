@@ -4,3 +4,8 @@ viweb_sylius_product_bridge_homepage:
 viweb_sylius_product_bridge_search:
     path:     /search/results
     defaults: { _controller: ViwebSyliusProductBridgeBundle:Frontend:search }
+viweb_sylius_product_bridge_single_cat:
+    path:     /category/{slug}
+    defaults: { _controller: ViwebSyliusProductBridgeBundle:Frontend:singleCategory }
+    requirements:
+        slug: ".*"

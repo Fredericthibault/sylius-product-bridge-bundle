@@ -38,10 +38,23 @@ class FrontendController extends Controller
         return $this->render('@ViwebSyliusProductBridge/frontend/search.html.twig', [
             'products' => $products
         ]);
+    }
+    
+    public function singleCategoryAction(Request $request, $slug)
+    {
+        $cat = $this->get('viweb.repository.product_category')->findBySlug($slug);
 
-
-
-
+        return $this->render('@ViwebSyliusProductBridge/frontend/single.html.twig', [
+            'category' => $cat
+        ]);
+    }
+    
+    public function categoryListAction()
+    {
+        $cats = $this->get('viweb.repository.product_category')->findAll();
+        return $this->render('@ViwebSyliusProductBridge/frontend/_categories.html.twig', [
+            'categories' => $cats
+        ]);
     }
 
 }

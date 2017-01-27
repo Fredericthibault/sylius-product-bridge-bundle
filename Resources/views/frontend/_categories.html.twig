@@ -1,0 +1,8 @@
+<h3>Categories List</h3>
+<ul>
+{% for c in categories %}
+    <li>
+        <a href="{{ path('viweb_sylius_product_bridge_single_cat', {'slug': c.translation.slug}) }}">{{ c.title }}</a>
+    </li>
+{% endfor %}
+</ul>

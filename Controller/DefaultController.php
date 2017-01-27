@@ -8,7 +8,8 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        $prd = $this->get('sylius.repository.product')->findAll();
-        return $this->render('ViwebSyliusProductBridgeBundle:Default:index.html.twig', ['prd'=> $prd]);
+        //$prd = $this->get('sylius.repository.product')->findAll();
+        $cts = $this->get('viweb.repository.product_category')->findAll();
+        return $this->render('ViwebSyliusProductBridgeBundle:Default:index.html.twig', ['categories'=> $cts]);
     }
 }

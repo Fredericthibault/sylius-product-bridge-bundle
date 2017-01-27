@@ -12,12 +12,14 @@
 </form>
 <h2> main menu</h2>
 {{ knp_menu_render('main') }}
-{{ render(controller('ViwebSyliusProductBridgeBundle:Frontend:categoryList')) }}
-{% for c in categories %}
-   <div>
-       <a href="{{ path('viweb_sylius_product_bridge_single_cat', {'slug': c.translation.slug}) }}">{{ c.title }}</a>
-       <img src="http://placehold.it/350x350" />
-   </div>
+
+{% for p in category.products %}
+    {% if p.translation.name|length %}
+       <div>
+           <a href="">{{ p.translation.name }}</a>
+           <img src="http://placehold.it/350x350" />
+       </div>
+    {% endif %}
 {% endfor %}
 </body>
 
