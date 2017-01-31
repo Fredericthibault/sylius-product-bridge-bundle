@@ -8,12 +8,10 @@
 <h2> main menu</h2>
 {{ knp_menu_render('main') }}
 
-{% for p in category.products %}
-    {% if p.translation.name|length %}
+    {% if product.translation.name|length %}
        <div>
-           <a href="{{ path('viweb_sylius_product_bridge_single_product', {'id': p.id}) }}">{{ p.translation.name }}</a>
+           <h1>{{ product.translation.name }}</h1>
            <img src="http://placehold.it/350x350" />
        </div>
     {% endif %}
-{% endfor %}
 {% endblock %}

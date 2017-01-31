@@ -124,7 +124,7 @@ viweb_admin_product_category:
             alias: viweb.product_category
             section: admin
             templates: ViwebSystemBundle:Crud
-            except: ['show']
+            except: ['show', 'update']
             redirect: update
             grid: viweb_product_category
             vars:
@@ -135,7 +135,17 @@ viweb_admin_product_category:
                 index:
                     icon: cube
     type: sylius.resource
+viweb_admin_product_category_update:
+    path: /product-categories/{id}/edit
+    methods: [GET, POST]
+    defaults:
+        _controller: viweb.controller.product_category:updateAction
+        _sylius:
+            section: admin
+            template: ViwebSystemBundle:Crud:update.html.twig
+
 #sylius_admin_product_create:
+
 #    path: /products/new
 #    methods: [GET, POST]
 #    defaults:

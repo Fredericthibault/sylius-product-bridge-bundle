@@ -42,7 +42,9 @@ class FrontendController extends Controller
     
     public function singleCategoryAction(Request $request, $slug)
     {
-        $cat = $this->get('viweb.repository.product_category')->findBySlug($slug);
+        $locale = $request->getLocale();
+
+        $cat = $this->get('viweb.repository.product_category')->findBySlug($slug, $locale);
 
         return $this->render('@ViwebSyliusProductBridge/frontend/single.html.twig', [
             'category' => $cat
@@ -54,6 +56,15 @@ class FrontendController extends Controller
         $cats = $this->get('viweb.repository.product_category')->findAll();
         return $this->render('@ViwebSyliusProductBridge/frontend/_categories.html.twig', [
             'categories' => $cats
+        ]);
+    }
+
+    public function singleProductAction(Request $request, $id)
+    {
+        $cat = $this->get('sylius.repository.product')->find($id);
+
+        return $this->render('@ViwebSyliusProductBridge/frontend/single_product.html.twig', [
+            'product' => $cat
         ]);
     }
 

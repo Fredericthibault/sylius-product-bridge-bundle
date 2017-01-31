@@ -9,3 +9,8 @@ viweb_sylius_product_bridge_single_cat:
     defaults: { _controller: ViwebSyliusProductBridgeBundle:Frontend:singleCategory }
     requirements:
         slug: ".*"
+viweb_sylius_product_bridge_single_product:
+    path: /{id}
+    defaults: { _controller: ViwebSyliusProductBridgeBundle:Frontend:singleProduct}
+    requirements:
+        id: '\d+'
