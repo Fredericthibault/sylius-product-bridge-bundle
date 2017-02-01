@@ -4,7 +4,7 @@ sylius_grid:
             driver:
                 name: doctrine/orm
                 options:
-                    class: Sylius\Component\Product\Model\Product
+                    class: Viweb\SyliusProductBridgeBundle\Entity\Product
             sorting:
                 code: asc
             fields:
@@ -18,10 +18,10 @@ sylius_grid:
                     type: string
                     label: sylius.ui.code
                     sortable: ~
-#                name:
-#                    type: string
-#                    label: sylius.ui.name
-#                    sortable: translation.name
+                name:
+                    type: string
+                    label: sylius.ui.name
+                    sortable: translation.name
 #                enabled:
 #                    type: twig
 #                    label: sylius.ui.enabled
