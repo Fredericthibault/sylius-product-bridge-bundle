@@ -62,7 +62,7 @@ class FrontendController extends Controller
     public function singleProductAction(Request $request, $id)
     {
         $cat = $this->get('sylius.repository.product')->find($id);
-
+        $cat->setCurrentLocale($request->getLocale());
         return $this->render('@ViwebSyliusProductBridge/frontend/single_product.html.twig', [
             'product' => $cat
         ]);
