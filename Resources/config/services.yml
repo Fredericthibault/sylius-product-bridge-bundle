@@ -7,6 +7,11 @@ services:
         class: Viweb\SyliusProductBridgeBundle\Form\Extension\ProductTypeExtension
         tags:
             - { name: form.type_extension, extended_type: Sylius\Bundle\ProductBundle\Form\Type\ProductType }
+
+    viweb_sylius_bridge.frontend_menu_subscriber:
+        class: Viweb\SyliusProductBridgeBundle\EventListener\ProductMenuListener
+        tags:
+            - { name: kernel.event_subscriber }
 #    viweb_sylius_product_bridge.product_subscriber:
 #        class: Viweb\SyliusProductBridgeBundle\EventListener\ProductEntityListener
 #        tags:
