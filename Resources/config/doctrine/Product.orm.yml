@@ -5,6 +5,7 @@ Viweb\SyliusProductBridgeBundle\Entity\Product:
     manyToOne:
         category:
             targetEntity: Viweb\SyliusProductBridgeBundle\Entity\Category
+            inversedBy: products
             joinColumn:
                 name: category_id
                 referencedColumnName: id
