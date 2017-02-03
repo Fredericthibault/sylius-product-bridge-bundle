@@ -23,4 +23,13 @@ class CategoryRepository extends EntityRepository
             ->setParameter('locale', $locale)
             ->getQuery()->getSingleResult();
     }
+
+    public function findForMenuBuilder()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->select('c', 'ct')
+            ->innerJoin('c.translations', 'ct')
+            ->andWhere('ct.locale = :locale')
+            ->setParameter('locale', $locale)
+    }
 }

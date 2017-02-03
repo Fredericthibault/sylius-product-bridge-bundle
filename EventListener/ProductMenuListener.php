@@ -33,7 +33,8 @@ class ProductMenuListener implements EventSubscriberInterface
 
     public function processMenu(ConfigureFrontendMenuEvent $event)
     {
-
+        $repo = $event->getEm()->getRepository('viweb.repository.product_category');
+        $cats = $repo->findAll();
     }
 
 
