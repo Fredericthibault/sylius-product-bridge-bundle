@@ -14,8 +14,10 @@ Viweb\SyliusProductBridgeBundle\Entity\Product:
             joinColumn:
                 name: media_id
                 referencedColumnName: id
+            cascade: [persist]
         secondaryImage:
             targetEntity: Viweb\MediaBundle\Entity\Media
             joinColumn:
                 name: media_id
                 referencedColumnName: id
+            cascade: [persist]
