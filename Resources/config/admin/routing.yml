@@ -3,7 +3,7 @@ sylius_admin_product:
         alias: sylius.product
         section: admin
         templates: ViwebSystemBundle:Crud
-        except: ['show']
+        except: ['show', 'update']
         redirect: update
         grid: sylius_admin_product
         vars:
@@ -14,6 +14,15 @@ sylius_admin_product:
             index:
                 icon: cube
     type: sylius.resource
+viweb_admin_section_update:
+    path: /products/{id}/edit
+    methods: [GET, POST]
+    defaults:
+        _controller: sylius.controller.product:updateAction
+        _sylius:
+            section: admin
+            template: ViwebSystemBundle:Crud:update.html.twig
+
 sylius_admin_product_per_taxon_index:
     path: /products/taxon/{taxonId}
     methods: [GET]
