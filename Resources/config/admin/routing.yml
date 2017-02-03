@@ -14,7 +14,7 @@ sylius_admin_product:
             index:
                 icon: cube
     type: sylius.resource
-viweb_admin_section_update:
+sylius_admin_product_update:
     path: /products/{id}/edit
     methods: [GET, POST]
     defaults:
