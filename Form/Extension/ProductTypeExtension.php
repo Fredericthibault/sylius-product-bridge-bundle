@@ -20,8 +20,10 @@ class ProductTypeExtension extends AbstractTypeExtension
             "multiple" => false,
             'required' => false
         ])
-            ->add('main_image', MediaType::class)
-            ->add('secondary_image', MediaType::class)
+            ->add('main_image', MediaType::class, [
+                'required' =>false
+            ])
+            ->add('secondary_image', MediaType::class, ['required' => false ])
         ;
     }
 
