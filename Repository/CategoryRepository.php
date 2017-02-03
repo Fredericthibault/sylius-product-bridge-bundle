@@ -30,6 +30,6 @@ class CategoryRepository extends EntityRepository
             ->select('c', 'ct')
             ->innerJoin('c.translations', 'ct')
             ->andWhere('ct.locale = :locale')
-            ->setParameter('locale', $locale)
+            ->setParameter('locale', $locale);
     }
 }
