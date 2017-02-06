@@ -43,11 +43,13 @@ class FrontendController extends Controller
     public function singleCategoryAction(Request $request, $slug)
     {
         $locale = $request->getLocale();
+        $maker = $request->get('maker')?? null;
 
-        $cat = $this->get('viweb.repository.product_category')->findBySlug($slug, $locale);
+        $cat = $this->get('viweb.repository.product_category')->findBySlug($slug, $locale, $maker);
 
         return $this->render('@ViwebSyliusProductBridge/frontend/single.html.twig', [
-            'category' => $cat
+            'category' => $cat,
+            'maker' => $maker
         ]);
     }
     
