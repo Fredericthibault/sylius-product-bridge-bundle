@@ -21,7 +21,7 @@ class Category implements ResourceInterface, TranslatableInterface
     public function __construct()
     {
         $this->products = new ArrayCollection();
-        $this->currentLocale = $this->fallbackLocale = 'en';
+        $this->currentLocale = $this->fallbackLocale = 'fr';
         $this->intializeTranslationCollection();
     }
 
