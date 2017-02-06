@@ -47,7 +47,7 @@ class Category implements ResourceInterface, TranslatableInterface
         return $this->children->get($id);
     }
 
-    public function addChild(\Entity\Category $category)
+    public function addChild($category)
     {
         $this->children->add($category);
         return $this;
