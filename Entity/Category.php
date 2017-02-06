@@ -53,7 +53,7 @@ class Category implements ResourceInterface, TranslatableInterface
         return $this;
     }
 
-    public function removeChildren(\Entity\Category $category)
+    public function removeChildren($category)
     {
         $this->children->removeElement($category);
         return $this;
