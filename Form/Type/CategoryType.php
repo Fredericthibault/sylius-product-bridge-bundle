@@ -11,6 +11,7 @@ namespace Viweb\SyliusProductBridgeBundle\Form\Type;
 
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Sylius\Bundle\ResourceBundle\Form\Type\ResourceTranslationsType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Viweb\MediaBundle\Form\Type\MediaType;
 use Viweb\SyliusProductBridgeBundle\Entity\Category;
@@ -32,6 +33,9 @@ class CategoryType extends AbstractResourceType
             'entry_type' => CategoryTranslationType::class
         ])
             ->add('image', MediaType::class)
+            ->add('parent', EntityType::class, [
+                'class' => Category::class
+            ])
         ;
     }
 }

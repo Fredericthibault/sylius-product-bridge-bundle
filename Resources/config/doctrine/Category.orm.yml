@@ -19,8 +19,14 @@ Viweb\SyliusProductBridgeBundle\Entity\Category:
               name: media_id
               referencedColumnName: id
           cascade: [persist]
+        parent:
+          targetEntity: Viweb\SyliusProductBridgeBundle\Entity\Category
+          inversedBy: children
     oneToMany:
         products:
           targetEntity: Viweb\SyliusProductBridgeBundle\Entity\Product
           mappedBy: category
+        children:
+          targetEntity: Viweb\SyliusProductBridgeBundle\Entity\Category
+          mappedBy: parent
     lifecycleCallbacks: {  }

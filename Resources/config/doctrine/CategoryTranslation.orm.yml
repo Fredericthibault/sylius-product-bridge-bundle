@@ -12,6 +12,9 @@ Viweb\SyliusProductBridgeBundle\Entity\CategoryTranslation:
         title:
             type: string
             length: 255
+        body:
+            type: text
+            nullable: true
         slug:
             type: string
             length: 255

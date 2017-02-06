@@ -10,6 +10,7 @@ namespace Viweb\SyliusProductBridgeBundle\Form\Type;
 
 
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Viweb\SyliusProductBridgeBundle\Entity\CategoryTranslation;
@@ -28,6 +29,8 @@ class CategoryTranslationType extends AbstractResourceType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('title', TextType::class)
-                ->add('slug', TextType::class);
+                ->add('slug', TextType::class)
+                ->add('body', TextareaType::class)
+        ;
     }
 }

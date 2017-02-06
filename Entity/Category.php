@@ -18,9 +18,13 @@ class Category implements ResourceInterface, TranslatableInterface
 
     private $products;
 
+    private $children;
+
+    private $parent;
     public function __construct()
     {
         $this->products = new ArrayCollection();
+        $this->children = new ArrayCollection();
         $this->currentLocale = $this->fallbackLocale = 'fr';
         $this->intializeTranslationCollection();
     }
@@ -28,6 +32,59 @@ class Category implements ResourceInterface, TranslatableInterface
     public function __toString()
     {
         return $this->getTranslation()->getTitle();
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getChildren(): ArrayCollection
+    {
+        return $this->children;
+    }
+
+    public function getChild($id)
+    {
+        return $this->children->get($id);
+    }
+
+    public function addChild(\Entity\Category $category)
+    {
+        $this->children->add($category);
+        return $this;
+    }
+
+    public function removeChildren(\Entity\Category $category)
+    {
+        $this->children->removeElement($category);
+        return $this;
+    }
+
+    /**
+     * @param ArrayCollection $children
+     * @return Category
+     */
+    public function setChildren(ArrayCollection $children): Category
+    {
+        $this->children = $children;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    /**
+     * @param mixed $parent
+     * @return Category
+     */
+    public function setParent($parent)
+    {
+        $this->parent = $parent;
+        return $this;
     }
 
 

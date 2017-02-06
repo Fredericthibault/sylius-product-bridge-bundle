@@ -25,6 +25,27 @@ class CategoryTranslation extends AbstractTranslation implements ResourceInterfa
     private $slug;
 
 
+    private $body;
+
+    /**
+     * @return mixed
+     */
+    public function getBody()
+    {
+        return $this->body;
+    }
+
+    /**
+     * @param mixed $body
+     * @return CategoryTranslation
+     */
+    public function setBody($body)
+    {
+        $this->body = $body;
+        return $this;
+    }
+
+
     /**
      * Get id
      *
