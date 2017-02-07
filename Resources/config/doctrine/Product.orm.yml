@@ -1,7 +1,6 @@
 Viweb\SyliusProductBridgeBundle\Entity\Product:
     type: entity
     table: sylius_product
-
     manyToOne:
         category:
             targetEntity: Viweb\SyliusProductBridgeBundle\Entity\Category

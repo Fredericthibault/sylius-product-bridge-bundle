@@ -7,6 +7,10 @@ services:
         class: Viweb\SyliusProductBridgeBundle\Form\Extension\ProductTypeExtension
         tags:
             - { name: form.type_extension, extended_type: Sylius\Bundle\ProductBundle\Form\Type\ProductType }
+    viweb.form.extension.type.product_translation:
+        class: Viweb\SyliusProductBridgeBundle\Form\Extension\ProductTranslationTypeExtension
+        tags:
+            - { name: form.type_extension, extended_type: Sylius\Bundle\ProductBundle\Form\Type\ProductTranslationType }
 
     viweb_sylius_bridge.frontend_menu_subscriber:
         class: Viweb\SyliusProductBridgeBundle\EventListener\ProductMenuListener

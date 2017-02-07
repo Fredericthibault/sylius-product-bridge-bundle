@@ -1,0 +1,16 @@
+Viweb\SyliusProductBridgeBundle\Entity\ProductTranslation:
+    type: entity
+    table: sylius_product_translation
+    fields:
+        caracteristics:
+            type: text
+            nullable: true
+        warranty:
+            type: text
+            nullable: true
+        rebate:
+            type: text
+            nullable: true
+        financing:
+            type: text
+            nullable: true
