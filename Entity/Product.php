@@ -47,7 +47,7 @@ class Product extends \Sylius\Component\Product\Model\Product implements Transla
      * @param ArrayCollection $category
      * @return Product
      */
-    public function setCategory(ArrayCollection $category): Product
+    public function setCategory($category): Product
     {
         $this->category = $category;
         return $this;
