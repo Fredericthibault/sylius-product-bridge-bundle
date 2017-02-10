@@ -45,7 +45,12 @@ class FrontendController extends Controller
         $locale = $request->getLocale();
         $maker = $request->get('maker')?? null;
 
-        $cat = $this->get('viweb.repository.product_category')->findBySlug($slug, $locale, $maker);
+        try {
+            $cat = $this->get('viweb.repository.product_category')->findBySlug($slug, $locale, $maker);
+
+        } catch (|\Exception $e){
+            $cat = [];
+        }
 
         return $this->render('@ViwebSyliusProductBridge/frontend/single.html.twig', [
             'category' => $cat,
