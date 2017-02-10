@@ -7,15 +7,17 @@
 </form>
 <h2> main menu</h2>
 {{ knp_menu_render('main') }}
+{% if category|length %}
+    {% for p in category.products %}
+        {% if p.translation.name|length %}
+           <div>
+               <a href="{{ path('viweb_sylius_product_bridge_single_product', {'id': p.id}) }}">{{ p.translation.name }}</a>
+               <img src="http://placehold.it/350x350" />
+           </div>
+        {% endif %}
 
-{% for p in category.products %}
-    {% if p.translation.name|length %}
-       <div>
-           <a href="{{ path('viweb_sylius_product_bridge_single_product', {'id': p.id}) }}">{{ p.translation.name }}</a>
-           <img src="http://placehold.it/350x350" />
-       </div>
-    {% endif %}
+    {% endfor %}
 {% else %}
     <p>Aucun produits dans la catégorie demandée</p>
-{% endfor %}
+{% endif %}
 {% endblock %}
