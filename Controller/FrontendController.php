@@ -48,7 +48,7 @@ class FrontendController extends Controller
         try {
             $cat = $this->get('viweb.repository.product_category')->findBySlug($slug, $locale, $maker);
 
-        } catch (|\Exception $e){
+        } catch (\Exception $e){
             $cat = [];
         }
 
