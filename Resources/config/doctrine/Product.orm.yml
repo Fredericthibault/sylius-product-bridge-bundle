@@ -1,6 +1,11 @@
 Viweb\SyliusProductBridgeBundle\Entity\Product:
     type: entity
     table: sylius_product
+    fields:
+        maker:
+            type: string
+            length: 255
+            nullable: true
     manyToOne:
         category:
             targetEntity: Viweb\SyliusProductBridgeBundle\Entity\Category

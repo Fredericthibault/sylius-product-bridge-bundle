@@ -20,6 +20,28 @@ class Product extends \Sylius\Component\Product\Model\Product implements Transla
 
     protected $secondaryImage;
 
+    protected $maker;
+
+    /**
+     * @return mixed
+     */
+    public function getMaker()
+    {
+        return $this->maker;
+    }
+
+    /**
+     * @param mixed $maker
+     * @return Product
+     */
+    public function setMaker($maker)
+    {
+        $this->maker = $maker;
+        return $this;
+    }
+
+
+
     /**
      * @return mixed
      */
