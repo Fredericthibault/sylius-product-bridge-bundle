@@ -24,8 +24,7 @@ class CategoryRepository extends EntityRepository
             ->setParameter('locale', $locale);
         if($maker){
             $qb->innerJoin('c.products', 'p')
-                ->innerJoin('p.attributes', 'pa')
-                ->andWhere('pa.text like :maker')
+                ->andWhere('p.maker like :maker')
                 ->setParameter('maker', $maker);
         }
         return  $qb->getQuery()->getSingleResult();
