@@ -67,13 +67,25 @@ class FrontendController extends Controller
     }
 
     public function singleProductAction(Request $request, $id)
-    {   $end = explode('/', $id);
-        $end = end($end);
-        $cat = $this->get('sylius.repository.product')->findBy(['translation.slug' => $end]);
+    {   $args = explode('/', $id);
+        $end = array_pop($args);
+        $start = implode('/', $args);
+        $cat = $this->get('sylius.repository.product')->createQueryBuilder('p')
+            ->select('p', 'pt')
+            ->innerJoin('p.translations', 'pt')
+            ->innerJoin('p.category', 'pc')
+            ->innerJoin('pc.translations', 'pct')
+            ->andWhere("pt.slug = :slug")
+            ->andWhere("pct.slug = :cslug")
+            ->andWhere("pct.locale = :local")
+            ->andWhere("pt.locale = :local")
+            ->setParameters(['slug'=> $end, 'cslug' => $start, 'local'=> $request->getLocale()])
+            ->getQuery()->getSingleResult();
         $cat->setCurrentLocale($request->getLocale());
         return $this->render('@ViwebSyliusProductBridge/frontend/single_product.html.twig', [
             'product' => $cat
         ]);
     }
 
-}
+
+    }
