@@ -94,7 +94,7 @@ class Product extends \Sylius\Component\Product\Model\Product implements Transla
     }
 
     public function getPath() {
-        return $this->getCategory()->getSlug() . '/' . $this->getTranslation()->getSlug();
+        return $this->getCategory()->getTranslation()->getSlug() . '/' . $this->getTranslation()->getSlug();
     }
 
 
