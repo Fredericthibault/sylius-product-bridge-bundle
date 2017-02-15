@@ -13,4 +13,4 @@ viweb_sylius_product_bridge_single_product:
     path: /{id}
     defaults: { _controller: ViwebSyliusProductBridgeBundle:Frontend:singleProduct}
     requirements:
-        id: '\d+'
+        id: '.*'
