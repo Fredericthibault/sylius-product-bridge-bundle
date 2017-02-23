@@ -34,7 +34,8 @@ class CategoryType extends AbstractResourceType
         ])
             ->add('image', MediaType::class)
             ->add('parent', EntityType::class, [
-                'class' => Category::class
+                'class' => Category::class,
+                'required' => false
             ])
         ;
     }
