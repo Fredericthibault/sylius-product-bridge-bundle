@@ -37,7 +37,7 @@ class Category implements ResourceInterface, TranslatableInterface
     /**
      * @return ArrayCollection
      */
-    public function getChildren(): ArrayCollection
+    public function getChildren()
     {
         return $this->children;
     }
