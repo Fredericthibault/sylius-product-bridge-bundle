@@ -16,17 +16,17 @@ class ProductTypeExtension extends AbstractTypeExtension
         $builder
             ->add('maker', ChoiceType::class, [
                 'choices' => [
-                    "lennox" => "Lennox",
-                    "goodman" => "Goodman",
-                    "mitsubichi" => "Mitsubichi",
-                    "panasonic" => "Panasonic",
-                    "aire flo" => "Aire Flo",
-                    "honeywell" => "Honeywell",
-                    "wr emerson" => "Wr Emerson",
-                    "lifebreath" => "Lifebreath",
-                    "van-ee" => "Van-ee",
-                    "fantech" => "Fantech",
-                    "aprilaire" => "Aprilaire"
+                    "Lennox" => "lennox",
+                    "Goodman" => "loodman",
+                    "Mitsubichi" => "mitsubichi",
+                    "Panasonic" => "panasonic",
+                    "Aire Flo" => "aire flo",
+                    "Honeywell" => "honeywell",
+                    "Wr Emerson" => "wr emerson",
+                    "Lifebreath" => "lifebreath",
+                    "Van-ee" => "van-ee",
+                    "Fantech" => "fantech",
+                    "Aprilaire" => "aprilaire"
                 ]
             ])
             ->add('category', EntityType::class, [
