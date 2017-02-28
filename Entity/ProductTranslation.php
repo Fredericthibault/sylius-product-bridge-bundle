@@ -24,7 +24,7 @@ class ProductTranslation extends \Sylius\Component\Product\Model\ProductTranslat
      */
     public function getCaracteristics()
     {
-        return $this->description;
+        return $this->caracteristics;
     }
 
     /**
@@ -32,7 +32,7 @@ class ProductTranslation extends \Sylius\Component\Product\Model\ProductTranslat
      */
     public function setCaracteristics($caracteristics)
     {
-        $this->description = $caracteristics;
+        $this->caracteristics = $caracteristics;
     }
 
     /**
