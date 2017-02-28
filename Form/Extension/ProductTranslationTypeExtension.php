@@ -48,7 +48,8 @@ class ProductTranslationTypeExtension extends AbstractTypeExtension
                     'Pureair' => 'product.warranty.pureair',
                     'HC' => 'product.warranty.hc',
                     'Filtres Goodman' => 'product.warranty.goodmans.filter',
-                    'Aprilaire' => 'product.warranty.aprilaire'
+                    'Aprilaire' => 'product.warranty.aprilaire',
+                    'Hepa' => 'product.warranty.hepa'
                 ],
                 'expanded' => false,
                 'multiple' => false,
