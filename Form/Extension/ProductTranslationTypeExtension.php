@@ -1,7 +1,6 @@
 <?php
 namespace Viweb\SyliusProductBridgeBundle\Form\Extension;
 
-
 use Sylius\Bundle\ProductBundle\Form\Type\ProductTranslationType;
 use Sylius\Bundle\ProductBundle\Form\Type\ProductType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -20,9 +19,36 @@ class ProductTranslationTypeExtension extends AbstractTypeExtension
             ->add('warranty', ChoiceType::class, [
                 'choices' => [
                     'None' => null,
-                    '5 ans' => 'GARANTIE Tous les composantes couvertes – Garantie limitée de cinq ans sur une installation résidentielle et un an sur une installation non résidentielle. Se référer au certificat de garantie limitée d’équipement Lennox inclus avec votre unité pour les détails spécifiques.',
-                    '10 ans' => 'GARANTIE Compresseur – Garantie limitée de dix ans sur une installation résidentielle. Tous les autres composantes – Garantie limitée de dix ans sur une installation résidentielle. Main d’oeuvre – Garantie limitée de dix ans sur une installation résidentielle. Se référer au certificat de garantie limitée d’équipement Panasonic inclus avec votre unité pour les détails spécifiques.',
-                    '5 ans Goodmans' => 'GARANTIE Compresseur – Garantie limitée de cinq ans sur une installation résidentielle. Tous les autres composantes – Garantie limitée de un an sur une installation résidentielle. Main d’oeuvre – Garantie limitée de un an sur une installation résidentielle. Se référer au certificat de garantie limitée d’équipement Goodman inclus avec votre unité pour les détails spécifiques.'
+                    'Lennox 5 ans' => 'product.warranty.lennox5',
+                    'Lennox 10 ans' => 'product.warranty.lennox10',
+                    'Goodmans 5 ans' => 'product.warranty.goodmans5',
+                    'Lennox Signature' => 'product.warranty.lennox.signature',
+                    'Lennox Elite' => 'product.warranty.lennox.elite',
+                    'Lennox Merit' => 'product.warranty.lennox.merit',
+                    'Duralok Plus' => 'product.warranty.duralokplus',
+                    'Duralok Plus Merit' => 'product.warranty.duralokplus.merit',
+                    'Lennox Signature complet' => 'product.warranty.lennox.signature.all',
+                    'Lennox Elite complet' => 'product.warranty.lennox.elite.all',
+                    '10ans Panasonic' => 'product.warranty.panasonic10',
+                    '10ans Mitsubishi' => 'product.warranty.mitshubishi10',
+                    'Zuba' => 'product.warranty.zuba',
+                    'Sl18xc1' => 'product.warranty.sl18xc1',
+                    'Aire Flo' => 'product.warranty.aireflo',
+                    'i Harmony' => 'product.warranty.iHarmony',
+                    'Lennox 5ans Limited' => 'product.warranty.limited.lennox5',
+                    'Lennox 2ans Limited' => 'product.warranty.limited.lennox2',
+                    'Honeywell 5ans' => 'product.warranty.limited.honeywell5',
+                    'WR Emerson 5ans' => 'product.warranty.limited.wr5',
+                    'Lennox 5ans Residentielle' => 'product.warranty.limited.residential.lennox5',
+                    'HRV' => 'product.warranty.hrv',
+                    'Lifebreath' => 'product.warranty.lifebreath',
+                    'Fantech' => 'product.warranty.fantech',
+                    'Van ee 2ans' => 'product.warranty.vanee2',
+                    'Van ee 5ans' => 'product.warranty.vanee5',
+                    'Pureair' => 'product.warranty.pureair',
+                    'HC' => 'product.warranty.hc',
+                    'Filtres Goodman' => 'product.warranty.goodmans.filter',
+                    'Aprilaire' => 'product.warranty.aprilaire'
                 ],
                 'expanded' => false,
                 'multiple' => false,
@@ -31,7 +57,7 @@ class ProductTranslationTypeExtension extends AbstractTypeExtension
             ->add('rebate', ChoiceType::class, [
                 'choices' => [
                     'None' => null,
-                    'Default Text' => "Rabais &amp; Subventions <br>Demandez à votre représentant pour les Rabais &amp; Subventions en vigueuer au moment de votre achat ou envoyez nous un courriel à l’adresse suivante: <a href=\"mailto:info@climatisationbs.com\"><strong><span style=\"color: #0404B4; text-decoration: underline;\"> info@climatisationbs.com</span></strong></a><br><strong><u>For Réno Climat you can visit the following website:</u></strong><br>Before undertaking any work, call us at 1-866-266-0008. A Rénoclimat energy advisor will contact you to schedule an appointment.<br><a href=\"http://www.efficaciteenergetique.gouv.qc.ca/en/my-home/renoclimat/energy-evaluation/pre-work-energy-evaluation/#c4209\">Be sure to check the costs related to this pre-work evaluation.</a><br><strong><u>Green Heating</u></strong><br>Your participation to Rénoclimat entitles you to benefit from <a href=\"http://www.efficaciteenergetique.gouv.qc.ca/en/my-home/chauffez-vert/#.VQM2EFRVhBd\">Heating with Green Power</a> without any other extra steps. <br>For more information, please visit the website : <a href=\"http://www.efficaciteenergetique.gouv.qc.ca/en/my-home/renoclimat/steps-to-follow/#.VQM2tlRVhBe\">Énergie &amp; Ressources Naturelles Québec</a><br>"
+                    'Default Text' => "product.rebate.default"
                 ],
                 'expanded' => false,
                 'multiple' => false,
@@ -40,7 +66,7 @@ class ProductTranslationTypeExtension extends AbstractTypeExtension
             ->add('financing', ChoiceType::class, [
                 'choices' => [
                     'None' => null,
-                    'Default Text' => "Financement disponible avec la Snap Financière. Selon approbation du crédit, vous pouvez bénéficiez de 3 mois sans paiements ni intérêt si la totalité de la facture est acquittée à l’échéance du 3 mois. Sinon vous bénéficierez d’un contrat ouvert sur une période de cinq ans au taux de +/- 8.75% selon le montant financé, rétroactif à la date d’installation. Selon la période de l’année et toujours selon l’approbation du crédit, certaines possibilités de 6 mois sans paiements ni intérêt peuvent être disponibles si acquittée à l’échéance du 6 mois. Sinon vous bénéficierez d’un contrat ouvert sur une période de cinq ans au taux de +/- 8.75% selon le montant financé, rétroactif à la date d’installation. Vérifiez avec votre représentant pour les promotions en vigueur à cet effet. Pour de plus amples informations veuillez demandez à votre représentant ou par courriel à l’adresse suivante: info@climatisationbs.com"
+                    'Default Text' => "product.financing.default"
                 ],
                 'expanded' => false,
                 'multiple' => false,
